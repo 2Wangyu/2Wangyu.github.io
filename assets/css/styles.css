@@ -502,6 +502,184 @@ a {
   background: var(--line);
 }
 
+.project-card {
+  --project-accent: var(--signal);
+  position: relative;
+  min-height: 37rem;
+  overflow: hidden;
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+  background: var(--ink-soft);
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.35s ease;
+}
+
+.project-card:first-child {
+  grid-column: 1 / -1;
+  min-height: 42rem;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.35s ease;
+}
+
+.project-card:hover {
+  background: #111920;
+}
+
+.project-card:hover::before {
+  border-color: color-mix(in srgb, var(--project-accent) 70%, transparent);
+}
+
+.project-card__top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.project-card__index {
+  color: var(--project-accent);
+}
+
+.project-card__visual {
+  position: absolute;
+  top: 5.2rem;
+  right: 2rem;
+  bottom: 12rem;
+  left: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 16%, transparent), transparent 54%),
+    repeating-linear-gradient(90deg, transparent 0 54px, rgba(255, 255, 255, 0.035) 54px 55px),
+    repeating-linear-gradient(0deg, transparent 0 54px, rgba(255, 255, 255, 0.035) 54px 55px),
+    #0b1015;
+}
+
+.project-card__visual::before,
+.project-card__visual::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card__visual::before {
+  top: 16%;
+  left: 24%;
+  width: 42%;
+  aspect-ratio: 1;
+  border: 1px solid var(--project-accent);
+  box-shadow: 0 0 5rem color-mix(in srgb, var(--project-accent) 25%, transparent);
+}
+
+.project-card__visual::after {
+  right: 15%;
+  bottom: -20%;
+  width: 42%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--project-accent) 32%, transparent), transparent 67%);
+  filter: blur(8px);
+}
+
+.project-card:hover .project-card__visual::before {
+  transform: translate(1.5rem, -1rem) scale(1.08);
+}
+
+.project-card:hover .project-card__visual::after {
+  transform: translate(-2rem, -1.5rem) scale(1.18);
+}
+
+.project-card__signal {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--dim);
+  font: 600 0.58rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.project-card__glyph {
+  position: absolute;
+  right: 1.25rem;
+  bottom: -0.25em;
+  color: var(--project-accent);
+  font: italic 400 clamp(6rem, 15vw, 12rem)/1 Georgia, serif;
+  opacity: 0.1;
+}
+
+.project-card__copy {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 4.6rem;
+  left: 2.5rem;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.65fr 1fr;
+  align-items: end;
+  gap: 2rem;
+}
+
+.project-card__copy h3,
+.tool-card h3,
+.timeline h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.project-card__copy h3 {
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  line-height: 1;
+}
+
+.project-card__copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.project-card__tags {
+  position: absolute;
+  bottom: 1.3rem;
+  left: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  color: var(--dim);
+  font: 500 0.64rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.08em;
+  list-style: none;
+}
+
+.project-card__arrow {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 1rem;
+  color: var(--project-accent);
+  font-size: 1.7rem;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-card__arrow {
+  transform: translate(0.35rem, -0.35rem);
+}
+
+.project-card:not(:first-child) .project-card__copy {
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.project-card:not(:first-child) .project-card__visual {
+  bottom: 14.5rem;
+}
+
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -557,8 +735,96 @@ a {
   border-top: 1px solid var(--line);
 }
 
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.25fr 0.65fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+  padding: 2.25rem 1rem 2.25rem 0;
+}
+
+.timeline__date {
+  color: var(--signal);
+  font: 600 0.68rem/1.5 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.15em;
+}
+
+.timeline h3 {
+  font-size: 1.4rem;
+}
+
+.timeline p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.timeline__mark {
+  position: absolute;
+  top: 2.4rem;
+  right: 0;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 1rem rgba(139, 245, 208, 0.6);
+}
+
 .tools {
   border-top: 1px solid var(--line);
+}
+
+.tools-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tool-card {
+  position: relative;
+  min-height: 25rem;
+  padding: 2rem;
+  background: var(--ink-soft);
+}
+
+.tool-card__index {
+  color: var(--dim);
+  font: italic 400 4rem/1 Georgia, serif;
+}
+
+.tool-card__status {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.6rem;
+  color: var(--signal);
+}
+
+.tool-card h3 {
+  position: absolute;
+  right: 2rem;
+  bottom: 7.5rem;
+  left: 2rem;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
+.tool-card p {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  margin: 0;
+  color: var(--muted);
+}
+
+.tool-card__corner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: rgba(139, 245, 208, 0.09);
+  font: 300 9rem/1 "Microsoft YaHei UI", sans-serif;
+  transform: translate(-50%, -50%);
 }
 
 .contact {
@@ -693,6 +959,14 @@ a {
   .timeline {
     margin-left: 0;
   }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    min-height: 20rem;
+  }
 }
 
 @media (max-width: 560px) {
@@ -750,6 +1024,30 @@ a {
   .projects-grid,
   .tools-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-card:first-child {
+    grid-column: auto;
+    min-height: 37rem;
+  }
+
+  .project-card__copy,
+  .project-card:first-child .project-card__copy {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .project-card__visual,
+  .project-card:not(:first-child) .project-card__visual {
+    bottom: 14rem;
+  }
+
+  .timeline__item {
+    grid-template-columns: 0.25fr 1fr;
+  }
+
+  .timeline__item p {
+    grid-column: 2;
   }
 
   .skill-list {

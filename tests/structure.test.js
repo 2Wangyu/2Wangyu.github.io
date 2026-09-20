@@ -23,3 +23,10 @@ test("home page uses only local assets", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
   assert.doesNotMatch(html, /https?:\/\//);
 });
+
+test("app creates GitHub Pages-safe project links and tool placeholders", async () => {
+  const source = await readFile(new URL("../assets/js/app.js", import.meta.url), "utf8");
+  assert.match(source, /project\.html\?id=/);
+  assert.match(source, /coming-soon/);
+  assert.doesNotMatch(source, /innerHTML\s*=/);
+});
