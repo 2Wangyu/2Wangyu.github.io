@@ -1,0 +1,48 @@
+export const PROFILE = {
+  name: "余旺",
+  romanizedName: "YU WANG",
+  role: "探索、创造与持续成长",
+  intro: "这里将记录我的项目、实践与成果。",
+};
+
+export const PROJECTS = [
+  {
+    slug: "digital-workbench",
+    index: "01",
+    title: "数字工作台",
+    category: "效率体验",
+    summary: "将分散任务整合为清晰、可行动的个人工作界面。",
+    description: "一个用于展示复杂信息如何被重新组织的概念项目。",
+    challenge: "在信息密度和使用节奏之间建立平衡。",
+    process: "从任务路径出发，整理层级、状态与反馈方式。",
+    result: "形成一套清晰、轻量且便于扩展的工作界面。",
+    tags: ["界面设计", "信息架构", "原型"],
+    accent: "#8bf5d0",
+  },
+  {
+    slug: "visual-archive",
+    index: "02",
+    title: "视觉档案",
+    category: "内容系统",
+    summary: "以更有秩序的方式保存、检索和讲述创作过程。",
+    description: "一个关注资料组织与视觉叙事的概念项目。",
+    challenge: "让不同类型的素材保持统一并容易查找。",
+    process: "建立分类规则、内容模板和检索路径。",
+    result: "形成可持续维护的个人创作档案结构。",
+    tags: ["内容设计", "视觉系统", "归档"],
+    accent: "#9bb7ff",
+  },
+  {
+    slug: "future-toolkit",
+    index: "03",
+    title: "未来工具箱",
+    category: "工具概念",
+    summary: "为后续小工具集成建立统一、易扩展的入口。",
+    description: "一个用于承载未来实用小工具的模块化概念。",
+    challenge: "在功能尚未确定时保留清晰的扩展边界。",
+    process: "先定义入口、状态、说明和一致的交互反馈。",
+    result: "得到可以逐步加入真实工具的稳定容器。",
+    tags: ["工具集", "模块化", "规划"],
+    accent: "#d7a6ff",
+  },
+];
