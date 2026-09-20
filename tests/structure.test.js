@@ -30,3 +30,8 @@ test("app creates GitHub Pages-safe project links and tool placeholders", async 
   assert.match(source, /coming-soon/);
   assert.doesNotMatch(source, /innerHTML\s*=/);
 });
+
+test("the offset hero artwork is clipped within the hero section", async () => {
+  const css = await readFile(new URL("../assets/css/styles.css", import.meta.url), "utf8");
+  assert.match(css, /\.hero\s*\{[^}]*overflow:\s*clip/s);
+});

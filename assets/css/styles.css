@@ -358,6 +358,7 @@ a {
   grid-template-columns: 0.35fr 1.45fr 0.75fr;
   align-items: center;
   min-height: calc(100svh - 78px);
+  overflow: clip;
   gap: 2rem;
 }
 
