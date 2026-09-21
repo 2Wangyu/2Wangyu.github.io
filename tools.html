@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="余旺的本地实用工具中心。">
+    <meta name="theme-color" content="#070a0e">
+    <title>工具中心 · 余旺</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/tools.css">
+  </head>
+  <body class="tool-page">
+    <a class="skip-link" href="#tool-workspace">跳到当前工具</a>
+    <header class="tool-header">
+      <a class="wordmark" href="index.html" aria-label="返回余旺主页">
+        <span>YW</span>
+        <i></i>
+      </a>
+      <div class="tool-header__title">
+        <span>UTILITY LAB</span>
+        <strong>工具中心</strong>
+      </div>
+      <div class="tool-header__privacy">
+        <i></i>
+        <span>本地运行 · 数据不上传</span>
+      </div>
+      <a class="tool-header__back" href="index.html#tools">返回主页 ↗</a>
+    </header>
+
+    <div class="tool-mobile-bar">
+      <div>
+        <span>当前工具</span>
+        <strong id="current-tool-label">文本统计</strong>
+      </div>
+      <button id="tool-drawer-toggle" type="button" aria-expanded="false" aria-controls="tool-sidebar">选择工具</button>
+    </div>
+
+    <main class="tool-layout">
+      <aside class="tool-sidebar" id="tool-sidebar" aria-label="工具导航">
+        <div class="tool-sidebar__head">
+          <div>
+            <p class="eyebrow">CHANNEL SELECTOR</p>
+            <h1>选择工具</h1>
+          </div>
+          <button id="tool-drawer-close" class="tool-sidebar__close" type="button" aria-label="关闭工具列表">×</button>
+        </div>
+        <label class="tool-search">
+          <span>搜索工具</span>
+          <input id="tool-search" type="search" placeholder="输入名称或分类" autocomplete="off">
+          <i aria-hidden="true">⌕</i>
+        </label>
+        <div class="tool-list" id="tool-list"></div>
+        <div class="tool-sidebar__foot">
+          <span>04 TOOLS ONLINE</span>
+          <span>V1.0</span>
+        </div>
+      </aside>
+
+      <section class="tool-workspace" id="tool-workspace" aria-live="polite" tabindex="-1"></section>
+    </main>
+
+    <script type="module" src="assets/js/tools/app.js"></script>
+  </body>
+</html>
