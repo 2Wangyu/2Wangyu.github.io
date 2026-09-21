@@ -86,20 +86,22 @@ function renderTimeline(container) {
 
 function renderTools(container) {
   const tools = [
-    ["A", "文本整理器", "快速整理、转换和重组文本内容。"],
-    ["B", "图片处理台", "为常用图片任务预留的一站式入口。"],
-    ["C", "效率小助手", "把重复步骤变成简单、直接的操作。"],
+    ["01", "text-stats", "文本统计", "统计字符、中文、单词、段落和阅读时间。"],
+    ["02", "json-formatter", "JSON 格式化", "校验、格式化或压缩 JSON 数据。"],
+    ["03", "timestamp", "时间戳转换", "在 Unix 时间戳和本地时间之间换算。"],
+    ["04", "password", "密码生成器", "生成可调节长度与规则的随机密码。"],
   ];
 
-  for (const [index, title, copy] of tools) {
-    const card = element("article", "tool-card");
-    card.dataset.status = "coming-soon";
+  for (const [index, id, title, copy] of tools) {
+    const card = element("a", "tool-card tool-card--link");
+    card.href = `tools.html#${id}`;
+    card.setAttribute("aria-label", `打开工具：${title}`);
     card.append(
       element("span", "tool-card__index", index),
-      element("span", "tool-card__status", "即将上线"),
+      element("span", "tool-card__category", "LOCAL TOOL"),
       element("h3", "", title),
       element("p", "", copy),
-      element("span", "tool-card__corner", "+"),
+      element("span", "tool-card__corner", "↗"),
     );
     container.append(card);
   }

@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 
-for (const page of ["index.html", "project.html", "404.html"]) {
+for (const page of ["index.html", "project.html", "tools.html", "404.html"]) {
   test(`${page} references existing local assets`, async () => {
     const html = await readFile(new URL(`../${page}`, import.meta.url), "utf8");
     const refs = [

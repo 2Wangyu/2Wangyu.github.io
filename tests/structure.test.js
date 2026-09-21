@@ -24,11 +24,19 @@ test("home page uses only local assets", async () => {
   assert.doesNotMatch(html, /https?:\/\//);
 });
 
-test("app creates GitHub Pages-safe project links and tool placeholders", async () => {
-  const source = await readFile(new URL("../assets/js/app.js", import.meta.url), "utf8");
-  assert.match(source, /project\.html\?id=/);
-  assert.match(source, /coming-soon/);
-  assert.doesNotMatch(source, /innerHTML\s*=/);
+test("home page links to the real tool center", async () => {
+  const [html, app] = await Promise.all([
+    readFile(new URL("../index.html", import.meta.url), "utf8"),
+    readFile(new URL("../assets/js/app.js", import.meta.url), "utf8"),
+  ]);
+  assert.match(html, /href="tools\.html"/);
+  assert.match(app, /project\.html\?id=/);
+  for (const id of ["text-stats", "json-formatter", "timestamp", "password"]) {
+    assert.match(app, new RegExp(`"${id}"`));
+  }
+  assert.match(app, /tools\.html#\$\{id\}/);
+  assert.doesNotMatch(app, /coming-soon/);
+  assert.doesNotMatch(app, /innerHTML\s*=/);
 });
 
 test("the offset hero artwork is clipped within the hero section", async () => {

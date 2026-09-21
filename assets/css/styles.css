@@ -777,14 +777,36 @@ a {
 }
 
 .tools-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .tool-card {
   position: relative;
-  min-height: 25rem;
+  display: block;
+  min-height: 22rem;
+  overflow: hidden;
   padding: 2rem;
   background: var(--ink-soft);
+  color: var(--text);
+}
+
+.tool-card--link {
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.tool-card--link:hover {
+  background: #111920;
+}
+
+.tool-card--link:hover .tool-card__corner {
+  color: var(--signal);
+  transform: translate(-35%, -65%);
+}
+
+.tool-card--link:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: -4px;
 }
 
 .tool-card__index {
@@ -792,13 +814,12 @@ a {
   font: italic 400 4rem/1 Georgia, serif;
 }
 
-.tool-card__status {
+.tool-card__category {
   position: absolute;
   top: 2rem;
   right: 2rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.4rem 0.6rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
   color: var(--signal);
 }
 
@@ -823,9 +844,15 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  color: rgba(139, 245, 208, 0.09);
-  font: 300 9rem/1 "Microsoft YaHei UI", sans-serif;
+  color: rgba(139, 245, 208, 0.12);
+  font: 300 7rem/1 "Microsoft YaHei UI", sans-serif;
+  transition: color 0.3s ease, transform 0.3s ease;
   transform: translate(-50%, -50%);
+}
+
+.tools-all-link {
+  display: inline-flex;
+  margin-top: 1.6rem;
 }
 
 .contact {
