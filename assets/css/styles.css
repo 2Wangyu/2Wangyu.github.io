@@ -629,8 +629,7 @@ a {
 }
 
 .project-card__copy h3,
-.tool-card h3,
-.timeline h3 {
+.tool-card h3 {
   margin: 0;
   font-weight: 400;
 }
@@ -727,49 +726,174 @@ a {
   padding-left: 1.25rem;
 }
 
-.experience {
+.resume {
   border-top: 1px solid var(--line);
 }
 
-.timeline {
+.resume-sheet {
   margin-left: 18%;
   border-top: 1px solid var(--line);
 }
 
-.timeline__item {
-  position: relative;
+.resume-profile {
   display: grid;
-  grid-template-columns: 0.25fr 0.65fr 1fr;
-  gap: 2rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) 10rem;
+  gap: 3rem;
+  align-items: center;
   border-bottom: 1px solid var(--line);
-  padding: 2.25rem 1rem 2.25rem 0;
+  padding: 3rem 0;
 }
 
-.timeline__date {
+.resume-profile__copy h3 {
+  margin: 0;
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.resume-profile__intent {
+  margin: 1.5rem 0 0;
+  color: var(--signal);
+  font: 600 0.78rem/1.6 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.resume-profile__intent span {
+  margin: 0 0.55rem;
+  color: var(--dim);
+}
+
+.resume-profile__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 1rem 0 0;
+  padding: 0;
+  color: var(--muted);
+  list-style: none;
+}
+
+.resume-profile__facts li:not(:last-child)::after {
+  content: "/";
+  margin: 0 0.65rem;
+  color: var(--dim);
+}
+
+.resume-profile__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  margin-top: 0.55rem;
+}
+
+.resume-profile__contact a {
+  color: #cdd4d1;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  font-size: 0.82rem;
+  text-decoration-color: rgba(139, 245, 208, 0.35);
+  text-underline-offset: 0.3em;
+}
+
+.resume-profile__photo {
+  width: 10rem;
+  height: auto;
+  border: 1px solid var(--line);
+  filter: saturate(0.78) contrast(1.04);
+}
+
+.resume-block {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.28fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  border-bottom: 1px solid var(--line);
+  padding: 3rem 0;
+}
+
+.resume-block__heading span {
+  display: block;
+  margin-bottom: 0.7rem;
   color: var(--signal);
   font: 600 0.68rem/1.5 "Microsoft YaHei UI", sans-serif;
   letter-spacing: 0.15em;
 }
 
-.timeline h3 {
-  font-size: 1.4rem;
-}
-
-.timeline p {
+.resume-block__heading h3 {
   margin: 0;
-  color: var(--muted);
+  font-size: 1.45rem;
+  font-weight: 400;
 }
 
-.timeline__mark {
-  position: absolute;
-  top: 2.4rem;
-  right: 0;
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 50%;
-  background: var(--signal);
-  box-shadow: 0 0 1rem rgba(139, 245, 208, 0.6);
+.resume-entry + .resume-entry {
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+  padding-top: 3rem;
+}
+
+.resume-entry__title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.resume-entry__title h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.resume-entry__title h4 span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.resume-entry__title time {
+  padding-top: 0.25rem;
+  color: var(--dim);
+  font: 500 0.68rem/1.6 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.resume-list,
+.resume-awards {
+  margin: 1.25rem 0 0;
+  padding-left: 1.2rem;
+  color: #b2bbb8;
+}
+
+.resume-list li + li,
+.resume-awards li + li {
+  margin-top: 0.65rem;
+}
+
+.resume-list li::marker,
+.resume-awards li::marker {
+  color: var(--signal);
+  font-family: "Microsoft YaHei UI", sans-serif;
+}
+
+.resume-awards {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(222, 242, 236, 0.08);
+  padding-top: 1.35rem;
+  padding-left: 1.35rem;
+}
+
+.resume-entry__paragraph,
+.resume-summary {
+  margin: 1.25rem 0 0;
+  color: #b2bbb8;
+}
+
+.resume-summary {
+  margin-top: 0;
+  font-size: 1.08rem;
+  line-height: 1.9;
 }
 
 .tools {
@@ -1222,7 +1346,7 @@ a {
     margin-top: 0;
   }
 
-  .timeline {
+  .resume-sheet {
     margin-left: 0;
   }
 
@@ -1321,12 +1445,23 @@ a {
     bottom: 14rem;
   }
 
-  .timeline__item {
-    grid-template-columns: 0.25fr 1fr;
+  .resume-profile {
+    grid-template-columns: minmax(0, 1fr) 7.5rem;
+    gap: 1.5rem;
   }
 
-  .timeline__item p {
-    grid-column: 2;
+  .resume-profile__photo {
+    width: 7.5rem;
+  }
+
+  .resume-block {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .resume-entry__title {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
   }
 
   .skill-list {

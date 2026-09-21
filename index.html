@@ -52,7 +52,7 @@
         <nav class="site-nav" aria-label="主要导航">
           <a href="#work">作品</a>
           <a href="#about">关于</a>
-          <a href="#experience">经历</a>
+          <a href="#resume">简历</a>
           <a href="tools.html">工具</a>
           <a href="#contact">联系</a>
         </nav>
@@ -68,7 +68,7 @@
             <p class="hero__intro" id="profile-intro"></p>
             <div class="hero__actions">
               <a class="text-link" href="#work">查看作品 <span>↘</span></a>
-              <a class="text-link text-link--muted" href="#experience">浏览简历 <span>↘</span></a>
+              <a class="text-link text-link--muted" href="#resume">浏览简历 <span>↘</span></a>
             </div>
           </div>
           <div class="hero__orb" aria-hidden="true">
@@ -107,15 +107,115 @@
           </div>
         </section>
 
-        <section class="section experience" id="experience" aria-labelledby="experience-title">
+        <section class="section resume" id="resume" aria-labelledby="resume-title">
           <div class="section-heading section-heading--compact">
             <span class="section-heading__index">03</span>
             <div>
-              <p class="eyebrow">EXPERIENCE / RESUME</p>
-              <h2 id="experience-title">经历与简历</h2>
+              <p class="eyebrow">CURRICULUM VITAE</p>
+              <h2 id="resume-title">个人简历</h2>
             </div>
           </div>
-          <div class="timeline" id="timeline"></div>
+          <div class="resume-sheet">
+            <header class="resume-profile">
+              <div class="resume-profile__copy">
+                <h3>余旺</h3>
+                <p class="resume-profile__intent">求职意向：算法工程师 <span aria-hidden="true">|</span> 随时到岗</p>
+                <ul class="resume-profile__facts" aria-label="个人信息">
+                  <li>21岁</li>
+                  <li>男</li>
+                  <li>中共党员</li>
+                </ul>
+                <div class="resume-profile__contact">
+                  <a href="tel:13584149536">13584149536</a>
+                  <a href="mailto:2974185442@qq.com">2974185442@qq.com</a>
+                </div>
+              </div>
+              <img class="resume-profile__photo" src="assets/images/resume-photo.jpg" alt="余旺证件照" width="280" height="327">
+            </header>
+
+            <section class="resume-block" aria-labelledby="resume-education">
+              <div class="resume-block__heading">
+                <span>01</span>
+                <h3 id="resume-education">教育背景</h3>
+              </div>
+              <div class="resume-block__content">
+                <article class="resume-entry">
+                  <div class="resume-entry__title">
+                    <h4>北京交通大学 211（已保研） <span>软件工程 · 本科</span></h4>
+                    <time>2022-09 ~ 2026-06</time>
+                  </div>
+                  <ul class="resume-list">
+                    <li>成绩排名：10/188（5.3%）　GPA：3.68/4</li>
+                    <li>英语能力：CET4: 589　CET6: 529</li>
+                    <li>专业课程：计算机网络、操作系统、机器学习、人工智能、算法设计与分析</li>
+                  </ul>
+                  <ol class="resume-awards">
+                    <li>2024-2025北京市级大学生创新创业训练项目 国家自然科学基金项目</li>
+                    <li>第十四届MathorCup数学建模挑战赛全国二等奖</li>
+                    <li>学习优秀奖学金，社会工作奖学金，校级优秀共青团干部，校级优秀共青团员</li>
+                  </ol>
+                </article>
+              </div>
+            </section>
+
+            <section class="resume-block" aria-labelledby="resume-projects">
+              <div class="resume-block__heading">
+                <span>02</span>
+                <h3 id="resume-projects">项目经验</h3>
+              </div>
+              <div class="resume-block__content">
+                <article class="resume-entry">
+                  <div class="resume-entry__title">
+                    <h4>基于小样本学习的CSI人体姿态识别算法研究 <span>算法研究</span></h4>
+                    <time>2024-05 ~ 2025-07</time>
+                  </div>
+                  <ul class="resume-list">
+                    <li>人体活动识别领域探索利用 WIFI 信号中的 CSI数据检测人体活动，为解决其面临数据样本有限和时效性要求高的问题，提出一种融合Resnet和注意力机制的Siamese网络模型，该方法将11类人体活动检测准确率提升至90%以上。</li>
+                    <li>本人负责：滤波与时频变换组合的数据预处理，开发Sia-RSNet网络模型，同时完成论文的撰写工作。</li>
+                    <li>成果：Sia-RSNet: A Siamese Network Model Integrating Resnet and Squeeze-and-Excitation for Human Activity Recognition(IEEE TCCN，中科院1区在投，一作)，一种结合残差网络和注意力机制的人体活动识别方法(申请号：202510555837.0)。</li>
+                  </ul>
+                </article>
+
+                <article class="resume-entry">
+                  <div class="resume-entry__title">
+                    <h4>基于强化学习的增强型OFDM-DCSK混沌加密模型算法研究 <span>算法研究</span></h4>
+                    <time>2024-12 ~ 2025-06</time>
+                  </div>
+                  <ul class="resume-list">
+                    <li>为解决混沌系统中参考信号的直接传输削弱安全性，复杂信道如快衰落/铁路信道下误码率高、泛化能力差的问题，提出了一种先进的OFDM-DCSK混沌通信模型，该方法优化混沌调制信号建模，提升复杂场景鲁棒性。</li>
+                    <li>本人负责：引入双TCN来克服传统通信信号处理在时间序列特征提取方面的局限性，将自注意力机制与Transformer网络融合。</li>
+                    <li>成果:DTSAT-DRQN: An Enhanced OFDM-DCSK Chaos Communication Model Integrating Dual TCN, Self-Attention, Transformer, and DRQN (2025 ICONIP，CCF C类会议录用，二作)，一种基于深度强化学习的增强型OFDM-DCSK混沌加密方法(二作)。</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="resume-block" aria-labelledby="resume-internship">
+              <div class="resume-block__heading">
+                <span>03</span>
+                <h3 id="resume-internship">实习经历</h3>
+              </div>
+              <div class="resume-block__content">
+                <article class="resume-entry">
+                  <div class="resume-entry__title">
+                    <h4>中国科学院软件研究所 <span>算法研究实习生</span></h4>
+                    <time>2025-07 ~ 2025-08</time>
+                  </div>
+                  <p class="resume-entry__paragraph">多模态图像融合与检测系统：提出了一个基于双层次优化的目标感知双对抗学习框架，通过一个生成器和两个分别关注红外目标与可见光细节的判别器，实现检测导向的红外-可见光图像融合。在融合效果方面，融合质量指标较优，在目标检测方面，我们使用YOLOv5和FCOS作为检测器，评估了融合图像对检测性能的提升，我们的方法在mAP@0.5上达到了70%以上。</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="resume-block" aria-labelledby="resume-summary">
+              <div class="resume-block__heading">
+                <span>04</span>
+                <h3 id="resume-summary">自我评价</h3>
+              </div>
+              <div class="resume-block__content">
+                <p class="resume-summary">深耕算法研究1年以上，发表论文2篇(含在投)及专利1项，主攻深度学习、强化学习优化(DTSAT-DRQN混沌加密)与小样本学习(Sia-RSNet人体识别)，熟练运用Transformer、self-Attention等技术解决动态建模问题。</p>
+              </div>
+            </section>
+          </div>
         </section>
 
         <section class="section tools" id="tools" aria-labelledby="tools-title">

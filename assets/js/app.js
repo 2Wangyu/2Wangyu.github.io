@@ -8,7 +8,6 @@ const mainContent = document.querySelector("#main-content");
 const profileIntro = document.querySelector("#profile-intro");
 const canvas = document.querySelector("#ambient-canvas");
 const projectsGrid = document.querySelector("#projects-grid");
-const timeline = document.querySelector("#timeline");
 const toolsGrid = document.querySelector("#tools-grid");
 
 profileIntro.textContent = `${PROFILE.name} · ${PROFILE.role}。${PROFILE.intro}`;
@@ -58,32 +57,6 @@ function renderProjects(projects, container) {
   }
 }
 
-function renderTimeline(container) {
-  const records = [
-    {
-      date: "NOW",
-      title: "个人资料待补充",
-      copy: "这里将展示你的当前方向、擅长领域与个人介绍。",
-    },
-    {
-      date: "NEXT",
-      title: "项目经验待补充",
-      copy: "这里将按时间顺序记录具有代表性的项目与实践经历。",
-    },
-  ];
-
-  for (const record of records) {
-    const item = element("article", "timeline__item");
-    item.append(
-      element("span", "timeline__date", record.date),
-      element("h3", "", record.title),
-      element("p", "", record.copy),
-      element("span", "timeline__mark", ""),
-    );
-    container.append(item);
-  }
-}
-
 function renderTools(container) {
   const tools = [
     ["01", "text-stats", "文本统计", "统计字符、中文、单词、段落和阅读时间。"],
@@ -108,7 +81,6 @@ function renderTools(container) {
 }
 
 renderProjects(PROJECTS, projectsGrid);
-renderTimeline(timeline);
 renderTools(toolsGrid);
 
 function enterSite() {
