@@ -1,0 +1,514 @@
+:root {
+  --tool-accent: var(--signal);
+}
+
+.tool-page {
+  overflow: auto;
+  background: var(--ink);
+}
+
+.tool-header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  align-items: center;
+  min-height: 78px;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0 var(--pad);
+  background: rgba(7, 10, 14, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.tool-header__title {
+  display: grid;
+  gap: 0.1rem;
+  text-align: center;
+  font-family: "Microsoft YaHei UI", sans-serif;
+}
+
+.tool-header__title span,
+.tool-header__privacy,
+.tool-header__back {
+  color: var(--dim);
+  font: 600 0.64rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.13em;
+}
+
+.tool-header__title strong {
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.tool-header__privacy {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.55rem;
+  color: var(--muted);
+}
+
+.tool-header__privacy i {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 0.75rem var(--signal);
+}
+
+.tool-header__back {
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.tool-layout {
+  display: grid;
+  grid-template-columns: minmax(17rem, 19rem) minmax(0, 1fr);
+  min-height: calc(100svh - 78px);
+}
+
+.tool-sidebar {
+  position: sticky;
+  top: 78px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100svh - 78px);
+  border-right: 1px solid var(--line);
+  background: #090e13;
+}
+
+.tool-sidebar__head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 2rem 1.5rem 1.2rem;
+}
+
+.tool-sidebar__head .eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--signal);
+}
+
+.tool-sidebar__head h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.tool-sidebar__close,
+.tool-mobile-bar {
+  display: none;
+}
+
+.tool-search {
+  position: relative;
+  display: block;
+  margin: 0 1rem 1rem;
+}
+
+.tool-search > span,
+.tool-field__label {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--muted);
+  font: 600 0.66rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.12em;
+}
+
+.tool-search input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.8rem 2.3rem 0.8rem 0.8rem;
+  background: #0e151c;
+  color: var(--text);
+  font: 16px/1.2 "Microsoft YaHei UI", sans-serif;
+}
+
+.tool-search i {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.75rem;
+  color: var(--signal);
+  font-style: normal;
+}
+
+.tool-list {
+  flex: 1;
+  overflow-y: auto;
+  border-top: 1px solid var(--line);
+}
+
+.tool-nav-item {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.3rem 0.75rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 1.1rem 1rem;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.tool-nav-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--signal);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.tool-nav-item:hover,
+.tool-nav-item.is-active {
+  background: rgba(139, 245, 208, 0.055);
+}
+
+.tool-nav-item.is-active::before {
+  opacity: 1;
+}
+
+.tool-nav-item__index,
+.tool-nav-item__category,
+.tool-nav-item__arrow,
+.tool-sidebar__foot {
+  color: var(--dim);
+  font: 600 0.61rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.tool-nav-item__index {
+  color: var(--signal);
+}
+
+.tool-nav-item__name {
+  font-size: 1rem;
+}
+
+.tool-nav-item__category {
+  grid-column: 2;
+}
+
+.tool-nav-item__arrow {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--signal);
+  font-size: 1rem;
+}
+
+.tool-list-empty {
+  padding: 2rem 1rem;
+  color: var(--muted);
+}
+
+.tool-list-empty__clear {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--signal);
+  cursor: pointer;
+  font: inherit;
+}
+
+.tool-sidebar__foot {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.tool-workspace {
+  min-width: 0;
+  background:
+    linear-gradient(rgba(139, 245, 208, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 245, 208, 0.025) 1px, transparent 1px),
+    var(--ink);
+  background-size: 46px 46px;
+}
+
+.tool-panel {
+  width: min(100%, 900px);
+  padding: clamp(2rem, 6vw, 5rem);
+  animation: tool-reveal 0.35s ease both;
+}
+
+.tool-panel__header {
+  margin-bottom: 2.8rem;
+}
+
+.tool-panel__header .eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--signal);
+}
+
+.tool-panel__header h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.tool-panel__intro {
+  max-width: 38rem;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+}
+
+.tool-field {
+  display: block;
+}
+
+.tool-field textarea,
+.tool-field input,
+.tool-field output {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  outline: none;
+  padding: 1rem;
+  background: rgba(10, 16, 22, 0.94);
+  color: var(--text);
+  font: 16px/1.65 "Microsoft YaHei UI", sans-serif;
+  resize: vertical;
+}
+
+.tool-field textarea:focus,
+.tool-field input:focus {
+  border-color: var(--signal);
+  box-shadow: 0 0 0 3px rgba(139, 245, 208, 0.09);
+}
+
+.tool-field--code textarea {
+  font-family: Consolas, "SFMono-Regular", monospace;
+  line-height: 1.55;
+}
+
+.tool-field--code textarea[readonly] {
+  color: #b9e9dc;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1rem 0;
+}
+
+.button {
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.8rem 1rem;
+  background: #101820;
+  color: var(--text);
+  cursor: pointer;
+  font: 600 0.74rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.08em;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.button:hover {
+  border-color: var(--signal);
+  background: #15242a;
+}
+
+.button--primary {
+  border-color: var(--signal);
+  background: var(--signal);
+  color: #06100e;
+}
+
+.button--primary:hover {
+  background: #b7ffe7;
+}
+
+.button--quiet {
+  margin-left: auto;
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.8rem 0 0;
+  border: 1px solid var(--line);
+  background: var(--line);
+  gap: 1px;
+}
+
+.metric {
+  min-height: 9rem;
+  padding: 1.25rem;
+  background: #0d141a;
+}
+
+.metric dt {
+  color: var(--muted);
+  font: 600 0.64rem/1.4 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.metric dd {
+  margin: 1rem 0 0;
+  color: var(--signal);
+  font: 400 clamp(2.5rem, 4vw, 4rem)/1 Georgia, serif;
+}
+
+.tool-status {
+  min-height: 1.6rem;
+  margin: 0.8rem 0;
+  color: var(--muted);
+  font: 0.85rem/1.5 "Microsoft YaHei UI", sans-serif;
+}
+
+.tool-status.is-success {
+  color: var(--signal);
+}
+
+.tool-status.is-error {
+  color: #ffaba0;
+}
+
+.tool-loading,
+.tool-error {
+  padding: 4rem;
+  color: var(--muted);
+}
+
+.tool-error h1 {
+  color: var(--text);
+  font-weight: 400;
+}
+
+@keyframes tool-reveal {
+  from { opacity: 0; transform: translateY(0.75rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 760px) {
+  .tool-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .tool-header__title,
+  .tool-header__privacy {
+    display: none;
+  }
+
+  .tool-mobile-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--line);
+    padding: 0.8rem var(--pad);
+    background: #0a1015;
+  }
+
+  .tool-mobile-bar span {
+    display: block;
+    color: var(--dim);
+    font: 600 0.59rem/1 "Microsoft YaHei UI", sans-serif;
+    letter-spacing: 0.13em;
+  }
+
+  .tool-mobile-bar strong {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .tool-mobile-bar button {
+    border: 1px solid var(--line);
+    padding: 0.65rem 0.8rem;
+    background: transparent;
+    color: var(--signal);
+    font: 600 0.68rem/1 "Microsoft YaHei UI", sans-serif;
+  }
+
+  .tool-layout {
+    display: block;
+    min-height: auto;
+  }
+
+  .tool-sidebar {
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(21rem, 88vw);
+    height: 100svh;
+    transform: translateX(-105%);
+    transition: transform 0.25s ease;
+    box-shadow: 2rem 0 4rem rgba(0, 0, 0, 0.45);
+  }
+
+  .tools-menu-open .tool-sidebar {
+    transform: none;
+  }
+
+  .tools-menu-open::after {
+    content: "";
+    position: fixed;
+    z-index: 25;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .tool-sidebar__close {
+    display: block;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .tool-panel {
+    padding: 2rem var(--pad) 5rem;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metric {
+    min-height: 7.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .tool-header__back {
+    font-size: 0.6rem;
+  }
+
+  .tool-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .button--quiet {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-sidebar,
+  .tool-panel {
+    animation: none;
+    transition: none;
+  }
+}
