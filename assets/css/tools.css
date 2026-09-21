@@ -143,6 +143,15 @@
   border-top: 1px solid var(--line);
 }
 
+.tool-nav-group {
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0.8rem 1rem 0.55rem;
+  color: var(--signal);
+  font: 600 0.62rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.14em;
+}
+
 .tool-nav-item {
   position: relative;
   display: grid;
@@ -246,6 +255,39 @@
 .tool-panel__header {
   margin-bottom: 2.8rem;
 }
+
+.conversion-picker {
+  display: grid;
+  min-height: 13rem;
+  place-items: center;
+  align-content: center;
+  gap: 0.75rem;
+  border: 1px dashed rgba(139, 245, 208, 0.45);
+  padding: 2rem;
+  background: rgba(139, 245, 208, 0.035);
+  cursor: pointer;
+  text-align: center;
+}
+
+.conversion-picker input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.conversion-picker__icon { color: var(--signal); font-size: 2rem; }
+.conversion-picker small, .conversion-status { color: var(--muted); }
+.conversion-status { min-height: 1.5em; margin: 1rem 0; }
+.conversion-status[data-kind="error"] { color: #ff9a9a; }
+.conversion-status[data-kind="warning"] { color: #ffd28a; }
+.conversion-status[data-kind="success"] { color: var(--signal); }
+.conversion-tabs, .conversion-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.2rem 0; }
+.conversion-tab, .tool-button { border: 1px solid var(--line); padding: 0.65rem 0.9rem; background: #111920; color: var(--text); cursor: pointer; font: inherit; }
+.conversion-tab.is-active, .tool-button { border-color: var(--signal); }
+.tool-button { background: var(--signal); color: #05100c; font-weight: 700; }
+.tool-button--quiet { background: transparent; color: var(--text); font-weight: 400; }
+.conversion-sheet-name { display: grid; gap: 0.5rem; max-width: 22rem; color: var(--muted); font-size: 0.8rem; }
+.conversion-sheet-name input, .conversion-table input { border: 1px solid var(--line); background: #0c1218; color: var(--text); font: inherit; }
+.conversion-sheet-name input { padding: 0.6rem; }
+.conversion-table-wrap { max-width: 100%; overflow: auto; border: 1px solid var(--line); }
+.conversion-table { width: 100%; border-collapse: collapse; }
+.conversion-table td { min-width: 9rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.conversion-table input { width: 100%; min-width: 9rem; border: 0; padding: 0.7rem; }
 
 .tool-panel__header .eyebrow {
   margin: 0 0 0.8rem;

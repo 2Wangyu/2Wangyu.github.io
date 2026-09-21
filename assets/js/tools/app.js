@@ -44,8 +44,17 @@ function renderToolList(query = "") {
     return;
   }
 
+  const groups = new Map();
   for (const tool of visible) {
-    const button = element("button", "tool-nav-item");
+    const name = tool.group ?? "常用工具";
+    if (!groups.has(name)) groups.set(name, []);
+    groups.get(name).push(tool);
+  }
+
+  for (const [groupName, groupTools] of groups) {
+    list.append(element("p", "tool-nav-group", groupName));
+    for (const tool of groupTools) {
+      const button = element("button", "tool-nav-item");
     button.type = "button";
     button.dataset.toolId = tool.id;
     button.classList.toggle("is-active", tool.id === activeToolId);
@@ -61,7 +70,8 @@ function renderToolList(query = "") {
       else activateTool(tool.id);
       closeDrawer();
     });
-    list.append(button);
+      list.append(button);
+    }
   }
 }
 
