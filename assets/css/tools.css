@@ -382,6 +382,119 @@
   color: #ffaba0;
 }
 
+.tool-separator {
+  margin: 3rem 0;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  color: var(--dim);
+  font: 600 0.62rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.16em;
+}
+
+.tool-result {
+  margin-top: 0.5rem;
+}
+
+.result-list {
+  margin: 0;
+  border: 1px solid var(--line);
+}
+
+.result-list__row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.38fr) 1fr;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.result-list__row:last-child {
+  border-bottom: 0;
+}
+
+.result-list dt {
+  color: var(--muted);
+  font: 600 0.66rem/1.5 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.result-list dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--text);
+  font-family: Consolas, "SFMono-Regular", monospace;
+}
+
+.password-controls {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.range-field,
+.password-options {
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 1.4rem;
+  background: #0d141a;
+}
+
+.range-field__head {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font: 600 0.72rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.range-field output {
+  color: var(--signal);
+  font-size: 1rem;
+}
+
+.range-field input {
+  width: 100%;
+  margin-top: 2.6rem;
+  accent-color: var(--signal);
+}
+
+.password-options legend {
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font: 600 0.72rem/1 "Microsoft YaHei UI", sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.check-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.8rem 0;
+  color: var(--text);
+  font: 0.9rem/1.2 "Microsoft YaHei UI", sans-serif;
+}
+
+.check-option input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--signal);
+}
+
+.password-result {
+  display: block;
+  min-height: 4.8rem;
+  margin-top: 1rem;
+  border: 1px solid var(--line);
+  padding: 1.2rem;
+  overflow-wrap: anywhere;
+  background: #0a1116;
+  color: var(--signal);
+  font: 1.2rem/1.6 Consolas, "SFMono-Regular", monospace;
+}
+
 .tool-loading,
 .tool-error {
   padding: 4rem;
@@ -488,6 +601,10 @@
   .metric {
     min-height: 7.5rem;
   }
+
+  .password-controls {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 420px) {
@@ -502,6 +619,11 @@
 
   .button--quiet {
     margin-left: 0;
+  }
+
+  .result-list__row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
   }
 }
 

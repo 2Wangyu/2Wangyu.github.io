@@ -20,3 +20,12 @@ test("text and JSON modules expose the shared mount interface", async () => {
   assert.equal(typeof textModule.mount, "function");
   assert.equal(typeof jsonModule.mount, "function");
 });
+
+test("timestamp and password modules expose the shared mount interface", async () => {
+  const [timestampModule, passwordModule] = await Promise.all([
+    import("../assets/js/tools/timestamp.js"),
+    import("../assets/js/tools/password.js"),
+  ]);
+  assert.equal(typeof timestampModule.mount, "function");
+  assert.equal(typeof passwordModule.mount, "function");
+});
